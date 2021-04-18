@@ -15,3 +15,6 @@
 /src/Tm.Api/.vs/TM.Api/v16/.suo
 /src/Tm.Api/bin/Debug/net5.0
 /src/Tm.Api/obj
+/.vs/TaskManagement/v16/TestStore/0
+/src/Test/bin/Debug
+/src/Test/obj

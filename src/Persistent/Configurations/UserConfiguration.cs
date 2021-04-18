@@ -14,7 +14,7 @@ namespace Persistent.Configurations
             template.Property(e => e.Id).HasColumnName("UserID");
             template.Property(e => e.CompanyId).HasColumnName("CompanyID");
             template.Property(e => e.Status).HasConversion(s => (byte)s, s => (State)s);
-            template.Property(e => e.username).HasMaxLength(20);
+            template.Property(e => e.Username).HasMaxLength(20);
             template.Property(e => e.Email).HasMaxLength(20);
 
             template.HasMany(d => d.UserProjects)
