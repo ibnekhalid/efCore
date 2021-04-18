@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TaskManagement/v16/.suo
+/src/Application/bin/Debug
+/src/Application/obj
+/src/Common/bin/Debug
+/src/Common/obj
+/src/Core/bin/Debug
+/src/Core/obj
+/src/Persistent/bin/Debug
+/src/Persistent/obj
+/src/Tm.Api/.vs/TM.Api/DesignTimeBuild/.dtbcache.v2
+/src/Tm.Api/.vs/TM.Api/v16/.suo
+/src/Tm.Api/bin/Debug/net5.0
+/src/Tm.Api/obj
