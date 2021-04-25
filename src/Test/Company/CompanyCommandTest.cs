@@ -22,7 +22,7 @@ namespace Test.Company
         }
         [Theory]
         [InlineData("Test Company")]
-        public void Add_Business(string name)
+        public void Add_Company(string name)
         {
             // Arrange
 
