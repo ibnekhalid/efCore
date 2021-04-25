@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Core.Model
 {
-    public class Company : Entity<int>
+    public class Company : StringEntity
     {
         #region Properties
         public string Name { get; protected set; }

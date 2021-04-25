@@ -26,14 +26,14 @@ namespace Application.Company.Queries
             return await context.Company.ToListAsync();
 
         }
-        public Task<Core.Model.Company> Get(int id)
+        public Task<Core.Model.Company> Get(string id)
         {
             using var serviceScope = _sp.CreateScope();
             var context = serviceScope.ServiceProvider.GetService<BaseQueryContext>();
             context.Database.EnsureCreated();
             return context.Company.FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
-        public Task<Core.Model.Company> GetByUser(int userId)
+        public Task<Core.Model.Company> GetByUser(string userId)
         {
             using var serviceScope = _sp.CreateScope();
             var context = serviceScope.ServiceProvider.GetService<BaseQueryContext>();

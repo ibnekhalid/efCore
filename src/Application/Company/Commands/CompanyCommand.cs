@@ -12,7 +12,7 @@ namespace Application.Company.Commands
         {
             _companyRepository = companyRepository;
         }
-        public async Task<int> Create(CreateCompanyVm vm)
+        public async Task<string> Create(CreateCompanyVm vm)
         {
             if (await _companyRepository.IsNameDuplicate(vm.Name)) throw new Exception($"'{vm.Name}' already exists. Please choose a different name.");
             var company = new Core.Model.Company(vm.Name);
@@ -21,7 +21,7 @@ namespace Application.Company.Commands
             return company.Id;
         }
 
-        public async Task<int> Update(UpdateCompanyVm vm)
+        public async Task<string> Update(UpdateCompanyVm vm)
         {
             var company = await _companyRepository.GetFirstOrDefault(vm.Id) ?? throw new Exception($"No Company found against id:'{vm.Id}'");
 
@@ -31,7 +31,7 @@ namespace Application.Company.Commands
             await _companyRepository.SaveChanges();
             return company.Id;
         }
-        public async Task<int> Inactivate(int id)
+        public async Task<string> Inactivate(string id)
         {
             var company = await _companyRepository.GetFirstOrDefault(id) ?? throw new Exception($"No Company found against id:'{id}'");
 
@@ -39,7 +39,7 @@ namespace Application.Company.Commands
             await _companyRepository.SaveChanges();
             return company.Id;
         }
-        public async Task<int> Activate(int id)
+        public async Task<string> Activate(string id)
         {
             var company = await _companyRepository.GetFirstOrDefault(id) ?? throw new Exception($"No Company found against id:'{id}'");
 

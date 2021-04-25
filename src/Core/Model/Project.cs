@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Core.Model
 {
-    public class Project : Entity<int>
+    public class Project : StringEntity
     {
-        public int CompanyId { get; set; }
+        public string CompanyId { get; set; }
         public string Title { get; set; }
         public State Status { get; set; }
         public virtual Company Company { get; set; }

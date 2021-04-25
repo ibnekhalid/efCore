@@ -10,11 +10,12 @@ namespace Persistent.Configurations
         public void Configure(EntityTypeBuilder<User> template)
         {
             template.ToTable("User");
-            template.HasIndex(e => e.Id).IsUnique();
+            
+            template.HasKey(e => e.Id);
             template.Property(e => e.Id).HasColumnName("UserID");
             template.Property(e => e.CompanyId).HasColumnName("CompanyID");
             template.Property(e => e.Status).HasConversion(s => (byte)s, s => (State)s);
-            template.Property(e => e.Username).HasMaxLength(20);
+            
             template.Property(e => e.Email).HasMaxLength(20);
 
             template.HasMany(d => d.UserProjects)

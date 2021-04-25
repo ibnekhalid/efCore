@@ -6,10 +6,10 @@ namespace Application.Company.Commands
 {
     public interface ICompanyCommandService : ICommandService
     {
-        Task<int> Create(CreateCompanyVm vm);
-        Task<int> Update(UpdateCompanyVm vm);
-        Task<int> Activate(int id);
-        Task<int> Inactivate(int id);
+        Task<string> Create(CreateCompanyVm vm);
+        Task<string> Update(UpdateCompanyVm vm);
+        Task<string> Activate(string id);
+        Task<string> Inactivate(string id);
     }
 
 }

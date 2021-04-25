@@ -9,7 +9,7 @@ namespace Application.Company.Commands.ViewModel
 {
     public class CompanyVm : BaseVm
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public State Status { get; set; }
         //public List<User> Users { get; set; }
@@ -37,6 +37,6 @@ namespace Application.Company.Commands.ViewModel
     public class UpdateCompanyVm : CreateCompanyVm
     {
         [Required]
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

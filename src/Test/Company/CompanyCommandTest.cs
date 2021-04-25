@@ -12,7 +12,7 @@ namespace Test.Company
     [TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
     public class CompanyCommandTest : TestBase
     {
-        private readonly int _companyId = SeedData.CompanyId;
+        private readonly string _companyId = SeedData.CompanyId;
         private readonly ICompanyCommandService _commandService;
         private readonly IBaseCommandContext _context;
         public CompanyCommandTest(Fixture fixture) : base(fixture)
@@ -34,7 +34,7 @@ namespace Test.Company
             // Act
             var id = _commandService.Create(model).Result;
 
-            var result = _context.Company.First(x => x.Id == id);
+            var result = _context.Company.First(x => x.Id.Equals(id));
 
             // Assert
             result.Should().NotBeNull();

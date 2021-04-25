@@ -20,11 +20,11 @@ namespace Application.Company.Repository
         }
         public Task<List<Core.Model.Company>> GetAll()
             => _companies.ToListAsync();
-        public Task<Core.Model.Company> GetFirstOrDefault(int id)
+        public Task<Core.Model.Company> GetFirstOrDefault(string id)
             => _companies.FirstOrDefaultAsync(x => x.Id.Equals(id));
         public Task<bool> IsNameDuplicate(string name)
             => _companies.AnyAsync(x => x.Name.ToLower().Equals(name.ToLower()));
-        public Task<bool> IsNameDuplicate(int id, string name)
+        public Task<bool> IsNameDuplicate(string id, string name)
              => _companies.AnyAsync(x => x.Name.ToLower().Equals(name.ToLower()) && !x.Id.Equals(id));
         public void Add(Core.Model.Company company)
             => _companies.Add(company);

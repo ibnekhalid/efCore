@@ -1,6 +1,7 @@
 ﻿using Application.Company.Commands;
 using Application.Company.Commands.ViewModel;
 using Application.Company.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 namespace Tm.Api.Controllers
 {
     [ApiController]
-    [Route("company")]
+    [Route("[controller]")]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyCommandService _command;
@@ -19,10 +21,11 @@ namespace Tm.Api.Controllers
             _query = query;
         }
         [HttpPost("create")]
-        public async Task<int> Create(CreateCompanyVm vm)
+        public async Task<string> Create(CreateCompanyVm vm)
         {
             return await _command.Create(vm);
         }
+        
         [HttpGet("all")]
         public async Task<List<CompanyVm>> GetAll()
         {

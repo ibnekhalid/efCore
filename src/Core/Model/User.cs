@@ -1,15 +1,15 @@
 ﻿using Common;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 
 namespace Core.Model
 {
-    public class User : Entity<int>
+    public class User : IdentityUser
     {
         #region Properties
-        public int CompanyId { get; protected set; }
-        public string Email { get; protected set; }
-        public string Username { get; protected set; }
+        public override string Id { get; set; } = Guid.NewGuid().ToString();
+        public string CompanyId { get; protected set; }
         public State Status { get; protected set; }
 
         #endregion
@@ -23,28 +23,34 @@ namespace Core.Model
         {
 
         }
-
-        public User(Company company, string email, string username)
+        public User(Company company,string email,string username)
         {
             CompanyId = company.Id;
+            UserName = username;
             Email = email;
-            Username = username;
-            Activate();
         }
+
 
         #endregion
         #region Behaviour 
-        public void Update(string email, string username)
-        {
-            if (Status == State.Inactive)
-                throw new Exception("Company is inactive.");
-            Email = email;
-            Username = username;
-        }
+
         public void Inactivate()
           => Status = State.Inactive;
         public void Activate()
             => Status = State.Active;
         #endregion
+    }
+
+    public class Role : IdentityRole
+    {
+
+    }
+    public class UserRole : IdentityUserRole<int>
+    {
+
+    }
+    public class RoleClaim : IdentityRoleClaim<int>
+    {
+
     }
 }
